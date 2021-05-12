@@ -9,383 +9,92 @@ let showPassword = document.getElementById('password-viewport')
 let passwordLength = rangeInputValue.value
 
 
-
 rangeInputValue.addEventListener('input', function(){
     caracteres.innerHTML = rangeInputValue.value
 })
 
 
-function onlyLowercaseSelected() {
-    generatedPassword = ''
+function oneCheckboxSelected(checkbox) {
+    generatedPassword = '';
 
     for(let i = 0; i < passwordLength; i++) {
-        let shuffleNumber = Math.ceil(Math.random() * alphabet.length - 1)
-        generatedPassword += alphabet[shuffleNumber]    
-        // console.log(shuffleNumber)
+        let shuffleNumber = Math.ceil(Math.random() * checkbox.length - 1)
+        generatedPassword += checkbox[shuffleNumber]
     }
-    
-    showPassword.innerHTML = generatedPassword
-    
-    // console.log(shuffleNumber)
-
-}
-
-
-function onlyUppercaseSelected() {
-    generatedPassword = ''
-
-    for(let i = 0; i < passwordLength; i++) {
-        let shuffleNumber = Math.ceil(Math.random() * alphabet.length - 1)
-        generatedPassword += alphabetCapsLock[shuffleNumber]    
-        // console.log(shuffleNumber)
-    }
-    
-    showPassword.innerHTML = generatedPassword
-}
-
-function onlyNumberSelected() {
-    generatedPassword = ''
-
-    for(let i = 0; i < passwordLength; i++) {
-        let shuffleNumber = Math.ceil(Math.random() * number.length - 1)
-        generatedPassword += number[shuffleNumber]    
-        // console.log(shuffleNumber)
-    }
-    
-    showPassword.innerHTML = generatedPassword
-}
-
-function onlySymbolSelected() {
-    generatedPassword = ''
-
-    for(let i = 0; i < passwordLength; i++) {
-        let shuffleNumber = Math.ceil(Math.random() * specialCaracteres.length - 1)
-        generatedPassword += specialCaracteres[shuffleNumber]    
-        // console.log(shuffleNumber)
-    }
-    
     showPassword.innerHTML = generatedPassword
 }
 
 
 
-function lowerCaseAndUpperCase() {
+function twoCheckboxSelected(checkbox1, checkbox2) {
     generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))  // Sempre irá gerar 2 números (0 e 1)
-
-
+    let differentCaracteres = Math.floor(Math.random() * (passwordLength - (passwordLength - 2))) 
 
     for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
-
-        let shuffleNumber = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumberCaps = Math.ceil(Math.random() * alphabet.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumber]
-        } else {
-            generatedPassword += alphabetCapsLock[shuffleNumberCaps]
-        }
-
-    }
+        differentCaracteres = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
+        let shuffleNumberCheckbox1 = Math.ceil(Math.random() * checkbox1.length - 1)
+        let shuffleNumberCheckbox2 = Math.ceil(Math.random() * checkbox2.length - 1)
     
-
-    // }   
-
-    showPassword.innerHTML = generatedPassword
-    
-}
-
-// lowerCaseAndUpperCase()
-
-
-function lowerCaseAndNumber() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))  // Sempre irá gerar 2 números (0 e 1)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumber = Math.ceil(Math.random() * number.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumberAlphabet]
-        } else {
-            generatedPassword += number[shuffleNumber]
-        }
-
-    }
-    
- 
-
-    showPassword.innerHTML = generatedPassword
-}
-
-// lowerCaseAndNumber()
-
-
-function lowerCaseAndSymbols() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))  // Sempre irá gerar 2 números (0 e 1)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumberAlphabet]
-        } else {
-            generatedPassword += specialCaracteres[shuffleSymbol]
-        }
-
-
-    }
-    
-
-
-    showPassword.innerHTML = generatedPassword
-}
-
-
-
-function upperCaseAndNumbers() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))  // Sempre irá gerar 2 números (0 e 1)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabetCapsLock.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * number.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabetCapsLock[shuffleNumberAlphabet]
-        } else {
-            generatedPassword += number[shuffleSymbol]
-        }
-
-    }
-    
-
-
-    showPassword.innerHTML = generatedPassword
-}
-
-
-
-
-function upperCaseAndSymbols() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))  // Sempre irá gerar 2 números (0 e 1)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabetCapsLock.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabetCapsLock[shuffleNumberAlphabet]
-        } else {
-            generatedPassword += specialCaracteres[shuffleSymbol]
-        }
-
-
-    }
-    
-
-    // }   
-
-    showPassword.innerHTML = generatedPassword
-}
-
-
-
-
-function numberAndSymbols() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))  // Sempre irá gerar 2 números (0 e 1)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 2)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * number.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += number[shuffleNumberAlphabet]
-        } else {
-            generatedPassword += specialCaracteres[shuffleSymbol]
-        }
-
-    }
-    
- 
-
-    showPassword.innerHTML = generatedPassword
-}
-
-
-
-function lowerCaseAndUpperCaseAndNumber() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.ceil(Math.random() * (passwordLength - (passwordLength - 3)))  // Sempre irá gerar 3 números (0, 1 e 2)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 3)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumberCaps = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumber = Math.ceil(Math.random() * number.length - 1)
-
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumberAlphabet]
-        } else if (lettersToUpperCase == 1) {
-            generatedPassword += alphabetCapsLock[shuffleNumberCaps]
-        } else {
-            generatedPassword += number[shuffleNumber]
-        }
-
-
-    }
-      
-
-    showPassword.innerHTML = generatedPassword
-}
-
-
-function loweCaseAndUpperCaseAndSymbols() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.ceil(Math.random() * (passwordLength - (passwordLength - 3)))  // Sempre irá gerar 3 números (0, 1 e 2)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 3)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumberCaps = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumberAlphabet]
-        } else if (lettersToUpperCase == 1) {
-            generatedPassword += alphabetCapsLock[shuffleNumberCaps]
-        } else {
-            generatedPassword += specialCaracteres[shuffleSymbol]
-        }
-
-    }
-    
-
-
-    showPassword.innerHTML = generatedPassword
-}
-
-
-function upperCaseAndNumbersAndSymbols() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 3)))  // Sempre irá gerar 2 números (0 e 1)
-
-
-
-    for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 3)))
-
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabetCapsLock.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-        let shuffleNumber = Math.ceil(Math.random() * number.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabetCapsLock[shuffleNumberAlphabet]
-        } else if (lettersToUpperCase == 1){
-            generatedPassword += number[shuffleNumber]
+        if(differentCaracteres == 0) {
+            generatedPassword += checkbox1[shuffleNumberCheckbox1]
         } else{
-            generatedPassword += specialCaracteres[shuffleSymbol]
+            generatedPassword += checkbox2[shuffleNumberCheckbox2]
         }
-
     }
-     
-
     showPassword.innerHTML = generatedPassword
 }
 
-// upperCaseAndNumbersAndSymbols()
 
-function lowerCaseAndNumberAndSymbols() {
+
+function threeCheckboxSelected(checkbox1, checkbox2, checkbox3) {
     generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 3)))  // Sempre irá gerar 2 números (0 e 1)
-
+    let differentCaracteres = Math.floor(Math.random() * (passwordLength - (passwordLength - 3))) 
 
     for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 3)))
+        differentCaracteres = Math.floor(Math.random() * (passwordLength - (passwordLength - 3))) 
+        let shuffleNumberCheckbox1 = Math.ceil(Math.random() * checkbox1.length - 1)
+        let shuffleNumberCheckbox2 = Math.ceil(Math.random() * checkbox2.length - 1)
+        let shuffleNumberCheckbox3 = Math.ceil(Math.random() * checkbox3.length - 1)
 
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumber = Math.ceil(Math.random() * number.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumberAlphabet]
-        } else if (lettersToUpperCase == 1){
-            generatedPassword += number[shuffleNumber]
+        if(differentCaracteres == 0) {
+            generatedPassword += checkbox1[shuffleNumberCheckbox1]
+        } else if (differentCaracteres == 1) {
+            generatedPassword += checkbox2[shuffleNumberCheckbox2]
         } else {
-            generatedPassword += specialCaracteres[shuffleSymbol]
+            generatedPassword += checkbox3[shuffleNumberCheckbox3]
         }
-
     }
- 
     showPassword.innerHTML = generatedPassword
 }
 
-function allSelected() {
-    generatedPassword = ''
-    let lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 4)))  // Sempre irá gerar 2 números (0 e 1)
 
+function allCheckboxSelected(checkbox1, checkbox2, checkbox3, checkbox4) {
+    generatedPassword = ''
+    let differentCaracteres = Math.floor(Math.random() * (passwordLength - (passwordLength - 4)))
 
     for(let i = 0; i < passwordLength; i++) {
-        lettersToUpperCase = Math.floor(Math.random() * (passwordLength - (passwordLength - 4)))
+        differentCaracteres = Math.floor(Math.random() * (passwordLength - (passwordLength - 4))) 
+        let shuffleNumberCheckbox1 = Math.ceil(Math.random() * checkbox1.length - 1)
+        let shuffleNumberCheckbox2 = Math.ceil(Math.random() * checkbox2.length - 1)
+        let shuffleNumberCheckbox3 = Math.ceil(Math.random() * checkbox3.length - 1)
+        let shuffleNumberCheckbox4 = Math.ceil(Math.random() * checkbox4.length - 1)
 
-        let shuffleNumberAlphabet = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleUpperCase = Math.ceil(Math.random() * alphabet.length - 1)
-        let shuffleNumber = Math.ceil(Math.random() * number.length - 1)
-        let shuffleSymbol = Math.ceil(Math.random() * specialCaracteres.length - 1)
-
-        if(lettersToUpperCase == 0) {
-            generatedPassword += alphabet[shuffleNumberAlphabet]
-        } else if (lettersToUpperCase == 1){
-            generatedPassword += number[shuffleNumber]
-        } else if(lettersToUpperCase == 2) {
-            generatedPassword += alphabetCapsLock[shuffleUpperCase]
+        if(differentCaracteres == 0) {
+            generatedPassword += checkbox1[shuffleNumberCheckbox1]
+        } else if (differentCaracteres == 1) {
+            generatedPassword += checkbox2[shuffleNumberCheckbox2]
+        } else if(differentCaracteres == 2) {
+            generatedPassword += checkbox3[shuffleNumberCheckbox3]
+        } else {
+            generatedPassword += checkbox4[shuffleNumberCheckbox4]
         }
-          else {
-            generatedPassword += specialCaracteres[shuffleSymbol]
-        }
-
     }
- 
     showPassword.innerHTML = generatedPassword
 }
 
 
-
-function generate() {
+function generatePassword() {
+    // generatePassword = ''
     let lowerCase = document.getElementById('lowerCase').checked
     let upperCase = document.getElementById('upperCase').checked
     let numbers = document.getElementById('numbers').checked
@@ -393,52 +102,51 @@ function generate() {
 
     passwordLength = rangeInputValue.value
 
-
-    if(lowerCase == true && upperCase == false && numbers == false && symbols == false) {
-        onlyLowercaseSelected()
+    if(lowerCase == true && upperCase == false && numbers == false && symbols == false) {  // One checkbox
+        oneCheckboxSelected(alphabet)
     }
-    else if(lowerCase == false && upperCase == true && numbers == false && symbols == false) {
-        onlyUppercaseSelected()
+    else if(lowerCase == false && upperCase == true && numbers == false && symbols == false) { // One checkbox
+        oneCheckboxSelected(alphabetCapsLock)
     }
-    else if(lowerCase == false && upperCase == false && numbers == true && symbols == false) {
-        onlyNumberSelected()
+    else if(lowerCase == false && upperCase == false && numbers == true && symbols == false) { // One checkbox
+        oneCheckboxSelected(number)
     }
-    else if(lowerCase == false && upperCase == false && numbers == false && symbols == true) {
-        onlySymbolSelected()
+    else if(lowerCase == false && upperCase == false && numbers == false && symbols == true) { // One checkbox
+        oneCheckboxSelected(specialCaracteres)
     }
-    else if(lowerCase == true && upperCase == true && numbers == false && symbols == false) {
-        lowerCaseAndUpperCase()
+    else if(lowerCase == true && upperCase == true && numbers == false && symbols == false) { // Two checkbox's
+        twoCheckboxSelected(alphabet, alphabetCapsLock)
     }
-    else if (lowerCase == true && upperCase == false && numbers == true && symbols == false) {
-        lowerCaseAndNumber()
+    else if (lowerCase == true && upperCase == false && numbers == true && symbols == false) { // Two checkbox's
+        twoCheckboxSelected(alphabet, number)
     }
-    else if(lowerCase == true && upperCase == false && numbers == false && symbols == true) {
-        lowerCaseAndSymbols()
+    else if(lowerCase == true && upperCase == false && numbers == false && symbols == true) { // Two checkbox's
+        twoCheckboxSelected(alphabet, specialCaracteres)
     }
-    else if(lowerCase == false && upperCase == false && numbers == true && symbols == true) {
-        numberAndSymbols()
+    else if(lowerCase == false && upperCase == false && numbers == true && symbols == true) { // Two checkbox's
+        twoCheckboxSelected(number, specialCaracteres)
     }
-    else if(lowerCase == false && upperCase == true && numbers == true && symbols == false) {
-        upperCaseAndNumbers()
+    else if(lowerCase == false && upperCase == true && numbers == true && symbols == false) { // Two checkbox's
+        twoCheckboxSelected(alphabetCapsLock, number)
     }
-    else if(lowerCase == false && upperCase == true && numbers == false && symbols == true) {
-        upperCaseAndSymbols()
+    else if(lowerCase == false && upperCase == true && numbers == false && symbols == true) { // Two checkbox's
+        twoCheckboxSelected(alphabetCapsLock, specialCaracteres)
     }
-    // else if (lowerCase == true && upperCase == false && numbers == false && symbols == true) {
-    //     lowerCaseAndSymbols()
-    // }
-    else if(lowerCase == true && upperCase == true && numbers == true && symbols == false) {
-        lowerCaseAndUpperCaseAndNumber()
+    else if(lowerCase == true && upperCase == true && numbers == true && symbols == false) {  // Three checkbox's
+        threeCheckboxSelected(alphabet, alphabetCapsLock, number)
     }
-    else if (lowerCase == true && upperCase == true && numbers == false && symbols == true) {
-        loweCaseAndUpperCaseAndSymbols()
+    else if (lowerCase == true && upperCase == true && numbers == false && symbols == true) { // Three checkbox's
+        threeCheckboxSelected(alphabet, alphabetCapsLock, specialCaracteres)
     }
-    else if (lowerCase == false && upperCase == true && numbers == true && symbols == true) {
-        upperCaseAndNumbersAndSymbols()
+    else if (lowerCase == false && upperCase == true && numbers == true && symbols == true) { // Three checkbox's
+        threeCheckboxSelected(alphabetCapsLock, number, specialCaracteres)
     }
-    else if (lowerCase == true && upperCase == false && numbers == true && symbols == true) {
-        lowerCaseAndNumberAndSymbols()
-    } else {
-        allSelected()
+    else if (lowerCase == true && upperCase == false && numbers == true && symbols == true) { // Three checkbox's
+        threeCheckboxSelected(alphabet, number, specialCaracteres)
+    } else if(lowerCase == true && upperCase == true && numbers == true && symbols == true) {
+        allCheckboxSelected(alphabet, alphabetCapsLock, number, specialCaracteres)
+    }
+    else {
+        alert('Você precisa marcar no mínimo uma opção!!')
     }
 }
