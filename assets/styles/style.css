@@ -52,6 +52,10 @@ main{
     height: 40px;
     background-color: white;
     border-radius: 40px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .caracteres-number{
@@ -75,6 +79,12 @@ main{
     align-items: center;
     gap: 5px;
 }
+
+span[id] {
+    color: #F75C03;
+    font-weight: 700;
+}
+
 span{
     margin-right: 20px;
 }
@@ -92,6 +102,7 @@ button{
     color: white;
     font-size: 1.2em;
     font-weight: 700;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1500px) {

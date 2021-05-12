@@ -14,7 +14,7 @@
 
 
     <main>
-        <div class="password-viewport">
+        <div class="password-viewport" id="password-viewport">
 
         </div>
 
@@ -23,8 +23,9 @@
 
 
         <div class="caracteres-number">
-            <span>Nº caracteres: </span>
-            <input type="range" min="5" max="15" name="" id="">
+            Nº Caracteres: 
+            <span id="caracteres-number">6</span>
+            <input type="range" min="5" max="20" name="" id="range-input" value="10">
         </div>
 
 
@@ -32,23 +33,23 @@
 
 
         <div class="user-preferences">
-            <input type="checkbox" name="" id=""> 
+            <input type="checkbox" name="" id="lowerCase"> 
             <span>abc</span>
 
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="upperCase">
             <span>ABC</span>
 
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="numbers">
             <span>123</span>
 
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="symbols">
             <span>#$%!@</span>
         </div>
 
 
 
 
-        <button>GERAR</button>
+        <button onclick="generate()">GERAR</button>
 
     </main>
 
